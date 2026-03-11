@@ -1,70 +1,156 @@
-# Getting Started with Create React App
+# TP React – useState, événements, formulaires et useEffect
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Objectif du TP
+Ce TP permet de découvrir les bases de React avec :
+- `useState` pour gérer l’état local
+- les événements `onClick`, `onChange` et `onSubmit`
+- les formulaires contrôlés
+- `useEffect`
+- le flux unidirectionnel des données
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Structure du dossier `src`
+Le dossier `src` doit contenir au minimum :
+- `App.js`
+- `Compteur.js`
+- `CompteurEffet.js`
+- `FormulaireNom.js`
+- `MessageBouton.js`
+- `index.js`
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Étape 1 – Créer le composant `Compteur`
+Dans `Compteur.js`, on crée un compteur avec `useState`.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Résumé
+- la variable `compte` stocke le nombre de clics
+- la fonction `setCompte` met à jour cette valeur
+- `onClick` lance la fonction `incrementer`
 
-### `npm test`
+### Ce que l’on apprend
+- comment créer un état local
+- comment réagir à un clic sur un bouton
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## Étape 2 – Créer le composant `MessageBouton`
+Dans `MessageBouton.js`, on affiche un message qui change après un clic.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Résumé
+- un texte est affiché dans la page
+- quand on clique sur le bouton, le message change
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Ce que l’on apprend
+- modifier dynamiquement l’affichage
+- utiliser `onClick` avec un autre exemple simple
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## Étape 3 – Créer le composant `FormulaireNom`
+Dans `FormulaireNom.js`, on crée un formulaire contrôlé.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Résumé
+- le champ texte est lié à une variable d’état `nom`
+- `onChange` met à jour la valeur saisie
+- `onSubmit` empêche le rechargement de la page avec `event.preventDefault()`
+- une alerte affiche le nom saisi
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Ce que l’on apprend
+- gérer un champ de formulaire avec React
+- utiliser un formulaire contrôlé
+- gérer l’envoi d’un formulaire
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Étape 4 – Créer le composant `CompteurEffet`
+Dans `CompteurEffet.js`, on ajoute `useEffect`.
 
-## Learn More
+### Résumé
+- le compteur augmente à chaque clic
+- `useEffect` s’exécute après chaque changement de `compte`
+- ici, le résultat est affiché dans la console
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Ce que l’on apprend
+- utiliser `useEffect`
+- exécuter une action après une mise à jour d’état
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## Étape 5 – Modifier `App.js`
+Dans `App.js`, on importe puis on affiche tous les composants.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Résumé
+`App.js` sert de composant principal.  
+Il regroupe :
+- `Compteur`
+- `MessageBouton`
+- `FormulaireNom`
+- `CompteurEffet`
 
-### Analyzing the Bundle Size
+### Ce que l’on apprend
+- organiser une application en plusieurs composants
+- respecter le flux unidirectionnel des données
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## Étape 6 – Exercices pratiques
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Exercice 1 – Affichage dynamique
+Créer un composant qui change le texte affiché à chaque clic.
 
-### Advanced Configuration
+**Exemple :**
+- Premier clic
+- Deuxième clic
+- Troisième clic
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+**But :** s’entraîner à modifier l’affichage selon l’état.
 
-### Deployment
+### Exercice 2 – Formulaire d’inscription
+Créer un formulaire contrôlé avec deux champs :
+- Prénom
+- Email
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+À la soumission, afficher les valeurs dans une alerte.
 
-### `npm run build` fails to minify
+**But :** manipuler plusieurs champs dans un formulaire React.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Exercice 3 – Compteur avec effet personnalisé
+Créer un compteur qui :
+- affiche le nombre de clics
+- utilise `useEffect`
+- change le titre de la page avec `document.title`
+
+**Exemple :**
+`Nombre de clics : 3`
+
+**But :** utiliser `useEffect` sur un cas concret visible.
+
+---
+
+## Vérification finale
+À la fin du TP, vérifier que :
+- le compteur fonctionne
+- le message change au clic
+- le formulaire récupère bien la saisie
+- l’effet React fonctionne dans la console ou dans le titre de la page
+
+---
+
+## Section démo vidéo
+
+
+https://github.com/user-attachments/assets/f790f9a8-d977-4e9e-959e-5691c5847d37
+
+
+---
+
+## Conclusion
+Ce TP permet de comprendre les bases essentielles de React.  
+Après ce travail, vous savez :
+- créer des composants
+- gérer l’état avec `useState`
+- gérer les événements
+- utiliser un formulaire contrôlé
+- exécuter un effet avec `useEffect`
